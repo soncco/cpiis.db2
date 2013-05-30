@@ -23,6 +23,10 @@ public class Pagina<T> {
     private int numeroPagina;
     /** Datos almacenados en el bloque. */
     private T datos;
+    /** Flag modificado */
+    private boolean modificado;
+    /** Flag clavado */
+    private boolean clavado;
     
     /**
      * Crea una nueva pagina conociendo su id de pagina y los datos.
@@ -50,6 +54,22 @@ public class Pagina<T> {
 
     public void setNumeroPagina(int numeroPagina) {
         this.numeroPagina = numeroPagina;
+    }
+    
+    public boolean esClavado() {
+        return clavado;
+    }
+
+    public void setClavado(boolean clavado) {
+        this.clavado = clavado;
+    }
+    
+    public boolean esModificado() {
+        return modificado;
+    }
+
+    public void setModificado(boolean modificado) {
+        this.modificado = modificado;
     }
     
     /**

@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  * 
  * @author hernan
  */
-public class GestorMemoriaIntermedia {
+public class GestorMemoriaIntermediaClavados {
 
     static final Logger logger = Logger.getLogger("Gestion de Buffer");
     /** Representa a los bloques de la memoria intermedia o buffer. */
@@ -38,7 +38,7 @@ public class GestorMemoriaIntermedia {
      * 
      * @param numeroPaginas cantidad de paginas en total en el buffer.
      */
-    public GestorMemoriaIntermedia(int numeroPaginas) {
+    public GestorMemoriaIntermediaClavados(int numeroPaginas) {
         this.numeroPaginas = numeroPaginas;
         // Crear el buffer con paginas vacias
         buffer = new Pagina[numeroPaginas];
@@ -89,15 +89,25 @@ public class GestorMemoriaIntermedia {
         } // Si la pagina no esta en el buffer, pero sin espacio en el buffer
         else {
             // recuperar la pagina a descartar
-            int numeroPaginaDescartada = (Integer) colaLRU.remove();
+            int numeroPaginaDescartada = (Integer) colaLRU.peek();
             int posicion = posicionDePaginaEnBuffer(numeroPaginaDescartada);
             Pagina paginaDescartada = buffer[posicion];
-            if (paginaDescartada.esModificado()==true) {
-                System.out.println("PAGINA MODIFICADA: (REQUIERE MODIFICACION EN DISCO): "+ paginaDescartada); 
-            }
-            buffer[posicion] = pagina;
-            colaLRU.add(pagina.getNumeroPagina());
-            return paginaDescartada;
+            if(paginaDescartada.esClavado()) {
+                System.out.println("La pagina que se pretendía sacar: "+ paginaDescartada+"  para colocar la nueva pagina: "+pagina+"Es una pagina clavada");
+                // entonces hacer que se saque la sgte pagina;
+                int  pag = (Integer)colaLRU.peek();// la k se quería sacar
+                colaLRU.remove();
+                colaLRU.add(pag);
+                return ponerPaginaEnBuffer(pagina);
+            } else {
+                if (paginaDescartada.esModificado()) {
+                    System.out.println("PAGINA MODIFICADA: (REQUIERE MODIFICACION EN DISCO): "+ paginaDescartada); 
+                }
+                colaLRU.remove();
+                buffer[posicion] = pagina;
+                colaLRU.add(pagina.getNumeroPagina());
+                return paginaDescartada;
+            }            
         }
 
     }
@@ -137,5 +147,5 @@ public class GestorMemoriaIntermedia {
         }
         return resultado + "\n" + this.colaLRU;
     }
-    
+
 }
