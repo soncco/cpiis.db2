@@ -4,7 +4,7 @@
 Descripción
 -----------
 
-Implementar la gestión de páginas.
+Crear un programa, que permita registrar varias tuplas en las páginas correspondientes, El programa debe controlar el hecho de que una página que no tenga espacio suficiente para una nueva tupla, pueda crear de manera automática una nueva página y seguir agregando tuplas,
 
 Referencias
 -----------
