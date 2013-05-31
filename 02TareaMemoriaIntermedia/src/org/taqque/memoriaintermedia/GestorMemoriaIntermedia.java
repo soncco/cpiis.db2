@@ -128,6 +128,10 @@ public class GestorMemoriaIntermedia {
         if(posicion >= 0)
             buffer[posicion].setDatos((Object)string);
     }
+    
+    public Pagina[] getBuffer() {
+        return this.buffer;
+    }
 
     @Override
     public String toString() {

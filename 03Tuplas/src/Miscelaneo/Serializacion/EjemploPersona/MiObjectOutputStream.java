@@ -1,0 +1,34 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Miscelaneo.Serializacion.EjemploPersona;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+/**
+ *
+ * @author AMD
+ */
+public class MiObjectOutputStream extends ObjectOutputStream
+{
+    /** Constructor que recibe OutputStream */
+    public MiObjectOutputStream(OutputStream out) throws IOException
+    {
+        super(out);
+    }
+
+    /** Constructor sin par�metros */
+    protected MiObjectOutputStream() throws IOException, SecurityException
+    {
+        super();
+    }
+
+    /** Redefinici�n del m�todo de escribir la cabecera para que no haga nada. */
+    @Override
+    protected void writeStreamHeader() throws IOException
+    {
+    }
+
+}

@@ -15,3 +15,6 @@ nbproject/private/
 *.jar
 *.war
 *.ear
+/02TareaMemoriaIntermedia/build/
+/03Tuplas/nbproject/private/
+/03Tuplas/build/
