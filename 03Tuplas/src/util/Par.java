@@ -1,6 +1,6 @@
 package util;
 /**
- * @author AMD
+ * @author brau
  *
  * Representa un par de valores.
  */

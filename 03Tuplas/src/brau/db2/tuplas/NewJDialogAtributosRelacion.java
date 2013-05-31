@@ -2,12 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
-/*
- * NewJDialogAtributosRelacion.java
- *
- * Created on 20/06/2012, 03:59:39 PM
- */
 package brau.db2.tuplas;
 
 import javax.swing.table.DefaultTableModel;

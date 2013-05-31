@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author AMD
+ * @author brau
  */
 public class Direccion implements Serializable {
     private String Pais;

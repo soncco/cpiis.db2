@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 /**
  *
- * @author AMD
+ * @author brau
  */
 public class MiObjectOutputStream extends ObjectOutputStream
 {

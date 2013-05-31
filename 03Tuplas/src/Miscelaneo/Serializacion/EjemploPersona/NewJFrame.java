@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-//http://www.chuidiang.com/java/ficheros/ObjetosFichero.php//me sirvio de ayuda
+//http://www.chuidiang.com/java/ficheros/ObjetosFichero.php
 /*
  * NewJFrame.java
  *
