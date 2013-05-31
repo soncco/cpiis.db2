@@ -16,6 +16,10 @@ Simple aplicación que registra personas, usando una clase.
 
 Implementación una abstracción básica de la Gestión de la Memoria Intermedia como parte de la arquitectura de un Sistema de Gestión de Base de Datos.
 
+### 03Tuplas
+
+Implementar la gestión de páginas.
+
 Instrucciones
 -------------
 
