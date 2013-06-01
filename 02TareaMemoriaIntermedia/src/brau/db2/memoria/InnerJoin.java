@@ -32,20 +32,20 @@ public class InnerJoin extends javax.swing.JFrame {
         cbAtributo.setVisible(false);
         jLabel3.setVisible(false);
         jLabel4.setVisible(false);
-        TPrestatario.add(new Prestatario("Raul Rivas Miranda", 43356547));
-        TPrestatario.add(new Prestatario("Rosa Silva Sosa", 71523345));
-        TPrestatario.add(new Prestatario("Aydeé Sosa Arriola", 87676567));
-        TPrestatario.add(new Prestatario("Victor Silva Huaman", 12089754));
-        TPrestatario.add(new Prestatario("Wilfredo Marquez Boza", 78675400));
-        TPrestatario.add(new Prestatario("Kelly Medrano Ñuflo", 43347687));
+        TPrestatario.add(new Prestatario("Fulano Mengano", 12345678));
+        TPrestatario.add(new Prestatario("Loreem Ipsum", 91234567));
+        TPrestatario.add(new Prestatario("John Smith", 89123456));
+        TPrestatario.add(new Prestatario("Juan Perez", 78912345));
+        TPrestatario.add(new Prestatario("Wicho Garcia", 67891234));
+        TPrestatario.add(new Prestatario("Heath Bleazard", 56789123));
 
-        TCliente.add(new Cliente("Maria Savedra Zuñiga", 43356547));
-        TCliente.add(new Cliente("Christian Soto Bueno", 71523345));
-        TCliente.add(new Cliente("Aydeé Sosa Arriola", 87676567));
-        TCliente.add(new Cliente("Miriam Alegía Zevallos", 12089754));
-        TCliente.add(new Cliente("Wilfredo Marquez Boza", 78675400));
-        TCliente.add(new Cliente("Kelly Medrano Ñuflo", 43347687));
-        // mostrar la tabla actual
+        TCliente.add(new Cliente("Maria Savedra Zuñiga", 12345678));
+        TCliente.add(new Cliente("Christian Soto Bueno", 91234567));
+        TCliente.add(new Cliente("Aydeé Sosa Arriola", 89123456));
+        TCliente.add(new Cliente("Miriam Alegía Zevallos", 78912345));
+        TCliente.add(new Cliente("Wilfredo Marquez Boza", 67891234));
+        TCliente.add(new Cliente("Kelly Medrano Ñuflo", 56789123));
+        
         cbTabla.removeAllItems();
         cbOperacion.removeAllItems();
         cbTablaI.removeAllItems();
