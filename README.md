@@ -24,6 +24,10 @@ Crear un programa, que permita registrar varias tuplas en las páginas correspon
 
 Implementar la Gestión de una Página utilizando Estructuras de Páginas con Ranuras. 
 
+### 05Almacenamiento
+
+Implementar un gestor de almacenamiento y de relación.
+
 Instrucciones
 -------------
 

@@ -64,7 +64,6 @@ public class NewJFrameGestorIOTupla extends JFrameConFondo {
         btn_AgregarTuplas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Alumno: Javier Quispe Alcca");
         setBackground(new java.awt.Color(255, 204, 0));
         setResizable(false);
 
@@ -319,6 +318,8 @@ public class NewJFrameGestorIOTupla extends JFrameConFondo {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)))
                 .addContainerGap())
         );
+
+        getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
