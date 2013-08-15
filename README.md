@@ -28,6 +28,10 @@ Implementar la Gestión de una Página utilizando Estructuras de Páginas con Ra
 
 Implementar un gestor de almacenamiento y de relación.
 
+### 06Indices
+
+Implementar archivos de Índices de Árboles B+.
+
 Instrucciones
 -------------
 
