@@ -67,6 +67,17 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
         }
         return new Atributo(nombre, tipo);
     }
+    
+    private int posicionString(String texto) {
+        String first = "a";
+        int order = ordenarPor.getSelectedIndex();
+        int index = 0;
+        for(int j = 0; j < theTuplas.getRowCount(); j++) {
+            if(theTuplas.getValueAt(j, order).toString().equals(texto))
+                index = first.compareTo(texto);
+        }
+        return index;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,6 +107,8 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
         guardar = new javax.swing.JButton();
         parse = new javax.swing.JButton();
         mostrar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        ordenarPor = new javax.swing.JComboBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -176,7 +189,7 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "ID"
+
             }
         ));
         jScrollPane1.setViewportView(tuplas);
@@ -252,29 +265,38 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel4.setText("Ordenar por:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(panelIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(parse)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(guardar)
                         .addGap(10, 10, 10)
-                        .addComponent(mostrar)))
+                        .addComponent(mostrar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(panelIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(parse))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ordenarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(panelDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(2, 2, 2)
@@ -285,9 +307,13 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buffer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(ordenarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -297,7 +323,7 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(138, 138, 138)
                         .addComponent(parse)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(guardar)
                     .addComponent(mostrar))
@@ -325,6 +351,7 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
     private void parseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parseActionPerformed
         for(int i = 0; i < theModel.getRowCount(); i++) {
             theTuplas.addColumn(theModel.getValueAt(i, 0).toString());
+            ordenarPor.addItem(theModel.getValueAt(i, 0).toString());
         }
     }//GEN-LAST:event_parseActionPerformed
 
@@ -359,14 +386,20 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
             log.append("Creando tuplas desordenadas: \n");
             for(int j = 0; j < theTuplas.getRowCount(); j++) {
                 List<Comparable> v = new ArrayList<Comparable>();
-                for(int k = 1; k < theTuplas.getColumnCount(); k++) {
+                for(int k = 0; k < theTuplas.getColumnCount(); k++) {
                     if (theTuplas.getColumnName(k).equals("String")) {
                         v.add(new String(theTuplas.getValueAt(j, k).toString()));
                     } else if (theTuplas.getColumnName(k).equals("Integer")) {
                         v.add(new Integer(theTuplas.getValueAt(j, k).toString()));
                     }
                 }
-                int numero = Integer.parseInt(theTuplas.getValueAt(j, 0).toString());
+                int numero = 0;
+                if(ordenarPor.getSelectedItem().toString().equals("Integer")) {
+                    numero = Integer.parseInt(theTuplas.getValueAt(j, ordenarPor.getSelectedIndex()).toString());
+                } else {
+                    numero = posicionString(theTuplas.getValueAt(j, ordenarPor.getSelectedIndex()).toString());
+                }
+                
                 IdentificadorTupla identificadorTupla = new IdentificadorTupla(archivo, numero);
                 gestor.insertarTuplaOrdenada(v, identificadorTupla, pagina);
                 Tupla t = new Tupla(identificadorTupla, v);
@@ -397,10 +430,12 @@ public class SecuencialForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea log;
     private javax.swing.JButton mostrar;
+    private javax.swing.JComboBox ordenarPor;
     private javax.swing.JPanel panelDerecha;
     private javax.swing.JPanel panelIzquierda;
     private javax.swing.JButton parse;
